@@ -1,0 +1,37 @@
+import pandas as pd
+from sklearn import preprocessing
+from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
+# Read data from csv file
+creditData = pd.read_csv("credit_data.csv")
+
+# Logistic regression accuracy: ~93%
+# KNN accuracy: ~84% with not transformed features
+# KNN accuracy: ~97.5% with transformed features (normalized)
+
+
+# Choose only three features to make predictions
+features = creditData[["income", "age", "loan"]]
+# Return column with name default
+targetVariables = creditData.default
+
+# Normalize features
+features = preprocessing.MinMaxScaler().fit_transform(features)
+
+# Divide data into four sets (two for fiting and two for testing)
+featureTrain, featureTest, targetTrain, targetTest = train_test_split(features,targetVariables, test_size=0.3)
+
+# Create KNN model
+model = KNeighborsClassifier(n_neighbors=4)
+# fit model with data
+model.fit(featureTrain, targetTrain)
+# get predictions for test data
+predictions = model.predict(featureTest)
+
+# Comparing predictions and true data
+# Tell us how many items were classified correctly and how many not
+print(confusion_matrix(targetTest, predictions))
+# Return percentage of classification accuracy
+print(accuracy_score(targetTest, predictions))
