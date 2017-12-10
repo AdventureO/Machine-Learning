@@ -3,6 +3,7 @@ x_new = 6
 gamma = 0.01 # Step size
 precision = 0.00001
 
+
 def func(x):
     y = 4 * x**3 - 9 * x**2
     return y
