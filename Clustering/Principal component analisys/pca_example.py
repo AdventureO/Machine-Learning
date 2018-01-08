@@ -25,7 +25,7 @@ while i < max_n and i < digits.images.shape[0]:
     p.imshow(digits.images[i], cmap=plt.cm.bone, interpolation='nearest')
     # label the image with the target value
     p.text(0, -1, str(digits.target[i]))
-    i = i + 1
+    i += 1
 
 plt.show()
 

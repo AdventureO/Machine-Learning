@@ -87,7 +87,7 @@ def calculate_hidden_delta(delta_plus_1, w_l, z_l):
     return np.dot(np.transpose(w_l), delta_plus_1) * f_deriv(z_l)
 
 
-def train_nn(nn_structure, X, y, iter_num=3500, alpha=0.25):
+def train_nn(nn_structure, X, y, iter_num=10000, alpha=0.25):
     W, b = setup_and_init_weights(nn_structure)
     cnt = 0
     m = len(y)
