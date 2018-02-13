@@ -82,7 +82,7 @@ model_reg.add(Dense(nClasses, activation='softmax'))
 opt = SGD(lr=0.01)
 model_reg.compile(loss = "categorical_crossentropy", optimizer = opt,  metrics=['accuracy'])
 
-history = model_reg.fit(train_data, train_labels_one_hot, batch_size=64, epochs=50, verbose=1,
+history = model_reg.fit(train_data, train_labels_one_hot, batch_size=64, epochs=200, verbose=1,
                    validation_data=(test_data, test_labels_one_hot))
 
 [test_loss, test_acc] = model_reg.evaluate(test_data, test_labels_one_hot)
