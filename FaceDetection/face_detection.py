@@ -34,6 +34,7 @@ import cv2
 
 # Path to image
 imagePath = ''
+
 # Path to classifier
 cascadeClassifierPath = ''
 
