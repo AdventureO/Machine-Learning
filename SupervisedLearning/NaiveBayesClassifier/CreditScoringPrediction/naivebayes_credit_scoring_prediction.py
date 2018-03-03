@@ -19,7 +19,7 @@ targetVariables = creditData.default
 featureTrain, featureTest, targetTrain, targetTest = train_test_split(features, targetVariables, test_size=0.3)
 
 # Create naive bayes model
-model =GaussianNB()
+model = GaussianNB()
 # fit model with data
 model.fit(featureTrain, targetTrain)
 # get predictions for test data

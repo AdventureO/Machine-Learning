@@ -26,7 +26,7 @@ plt.plot(point[0], point[1], 'ro', color='green', markersize=15)
 plt.axis([-0.5, 10, -0.5, 10])
 
 # Creating of naive bayes classifier
-classifier =GaussianNB() # this is the k value
+classifier = GaussianNB() # this is the k value
 classifier.fit(X, Y)
 
 # Predict class for our point
